@@ -1,0 +1,9 @@
+CSS in line style
+<style> tag and Creating a .cc file
+Additional Styles and Import Google Fonts
+Theory time - Selector
+Understanding the "Cascading" Style and Specificity
+Understanding inheritance
+Adding Combinators
+Theory time - Combinators
+Summarizing Properties and Selector
