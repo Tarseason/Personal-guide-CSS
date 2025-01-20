@@ -57,3 +57,82 @@ Estilo Inline	Simplicidade em elementos únicos	Difícil de manter e reutilizar
 Estilo interno	Codigo centraliizado em um local no HTML	Nao reutilizavel entre paginas
 Folha de estilo externa	Reutilização em varias paginas; separação clara entre HTML e CSS; melhor performance com cache.	
 Recomendação nao poderia ser outra, sempre que possível utilize folhas de estilos externas para melhorar a organização, escalabilidade e performance do projeto.
+
+
+### Estilos Adicionais e Fontes
+O objetivo principal é melhorar o visual do site ajustando como fontes, cores, espaçamentos e aplicando estilos únicos para diferentes seções.
+
+### Personalização de Fontes e Cores
+**Alterando a Cor do Texto**
+ 1. Use a propriedade ``color`` para definir a cor do texto.
+ 2.  Exemplo:
+ ```CSS
+ h1 {
+	 color: white;
+}
+```
+
+**Alterando a Familia de Fontes**
+1. Use a propriedade ``font-family`` para alterar a fonte.
+2.  Opções:
+	-  **Fontes padrão**: ``serif``, ``sans-serif``, ``monospace``.
+	-  **Fontes Personalizadas** 
+		- Utilize Google Fonts para importar novas fontes.
+		- Exemplo  com Google Fonts:
+			1. Adicione o link de importação no HTML
+			``` html
+			
+			<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+```
+			2. Aplique a font no CSS:
+			```css
+			h1 {
+				font-family: 'Anton', sans-serif;
+			}
+```
+
+### Estilização por seção 
+para aplicar estilos únicos a diferentes seções, utilize seletores específicos:
+1. Identifique as seções por **tags**, **classes**, ou **IDs**.
+	Exemplo:
+	``` css
+	// exemplo por classes
+	.header-sectrion {
+		background: #ff0000;
+		color: white;
+	}
+	.content-section {
+		background: #008000;
+		color: black;
+	}
+```
+
+Cada seção tera um estilo único sem compartilhamento de propriedades.
+
+### Utilizando o Google Fonts
+1. Acesse o [Google Fonts](https://fonts.google.com)
+2.  Escolha uma fonte desejada (ex: "Anton").
+3. Copie o link de importação fornecido
+4. Integre no HTML e utilize no CSS
+```html
+<head> 
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+```
+
+### Considerando Espacamento
+
+1. Ajuste espaçamento dentro e ao redor dos elementos com:
+	- ``padding``: espaçamento interno
+	- ``margin``: espaçamento externo.
+2. Exemplo:
+```css
+.header-section {
+	padding: 20px;
+	margin: 0;
+}
+```
+
+A personalização de fontes e cores melhora a estica do site.
+O uso de estilos únicos para cada seção aumenta a flexibilidade do design.
+Ferramentas como Google Fonts facilitam a importação de fontes personalizadas para qualquer projeto
