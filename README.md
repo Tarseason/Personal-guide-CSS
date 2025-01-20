@@ -136,3 +136,58 @@ Cada seção tera um estilo único sem compartilhamento de propriedades.
 A personalização de fontes e cores melhora a estica do site.
 O uso de estilos únicos para cada seção aumenta a flexibilidade do design.
 Ferramentas como Google Fonts facilitam a importação de fontes personalizadas para qualquer projeto
+
+
+### Regras de Especificidade
+1. **Ordem de Prioridade**
+	- **Estilos inline**: maior prioridade.
+	- **Seletores de ID**: alta prioridade.
+	- **Classes, pseudo-classes e seletores de atributos**: prioridade intermediaria. 
+	- **Tags e pseudo-elementos**: menor prioridade
+	- **Seletor universal (``*``)**: prioridade baixa
+	
+2. **Ordem de Arquivo**
+	 - Em seletores com a mesma especificidade, o estilo **definido por ultimo no CSS** tem prioridade
+
+3. **Herança e valores Padrão**
+	- Propriedades herdáveis (como ``font-family`` e ``color``) podem ser sobrescritas por seletores mais específicos.
+	- Estilos padrão do navegador tem a menos prioridade.
+
+#### Boas Praticas
+1. **Evite Estilos Inline**
+	- Use estilos inline apenas em casos específicos, pois eles possuem a maior prioridade e podem dificultar a manutenção.
+
+2. **Organize o CSS**
+	- Coloque seletores menos específicos no inicio e aumente a especificidade gradualmente
+
+3. **Compreenda a Cascata**
+	- Combine seletor de tags, classes e IDs de forma estratégica para evitar conflitos desnecessários.
+
+Exemplo:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especificidade</title>
+    <style>
+        h1 {
+            color: white; 
+        }
+        .title {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Título Muito Específico</h1>
+</body>
+</html>
+
+```
+
+O texto sera exibido em **verde**, pois ``.title`` (classe) tem maior especificidade do que ``h1`` (tag).
+
+
+A especificidade é um conceito fundamental para evitar conflitos e garantir que os estilos corretos sejam aplicados. O uso estratégico de seletores no CSS simplifica o desenvolvimento e a manutenção de projetos de projetos web.
