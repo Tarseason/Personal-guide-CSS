@@ -191,3 +191,41 @@ O texto sera exibido em **verde**, pois ``.title`` (classe) tem maior especifici
 
 
 A especificidade é um conceito fundamental para evitar conflitos e garantir que os estilos corretos sejam aplicados. O uso estratégico de seletores no CSS simplifica o desenvolvimento e a manutenção de projetos de projetos web.
+
+
+## Herança no CSS
+Certas propriedades, como ``font-family`` e ``color``, sao automaticamente herdados dos elementos pais e para os filhos. Propriedades nao herdáveis podem ser explicitamente aplicadas ao filhos com ``inherit``
+
+### Como configurar
+- Estilize elementos globais, como o ``<body>``, para aplicar herança a todos os elementos da pagina
+Exemplo:
+```css
+body {
+	font-family: 'Montserrat', sans-serif;]
+	color: #333;
+}
+```
+
+### Hierarquia de Herança
+A heranca sempre tem **baixa especificidade**, aparecendo abaixo de seletores diretos e padrões do navegador. Elementos filhos só herdam propriedades de pais diretos ou indiretos.
+
+#### Especificidade no Contexto de Herança
+1. **Seletores Diretos Sobrescrevem Herança**
+- Estilos aplicados diretamente a um elemento tem prioridade sobre herança
+Exemplo:
+```css
+h1 {
+	font-family: 'Anton', sans-serif; //Sobrescreve a heranca
+}
+```
+
+#### Boas Práticas
+
+1. **Configuração Global``
+	- Defina fontes e cores padrão no ``<body>`` para consistência e eficiência
+2. **Evite Uso Excessivo de Herança**
+	 - Para estilos específicos, use seletores diretos.
+3. **Compreenda as Limitações**
+	 - Propriedades nao herdáveis (como ``margin`` e ``padding``) devem ser definidas diretamente.
+
+A herança é  uma ferramenta poderosa para aplicar estilos globais de maneira eficiente, especialmente para textos. No entanto, é  essencial compreender como ela interage com a especificidade para evitar conflitos e garantir que os estilos desejados sejam aplicado corretamente.
