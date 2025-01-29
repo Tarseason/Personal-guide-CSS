@@ -19,8 +19,10 @@ Alternativas ao inline
 Estilo na seção <head>
 Definir Estilos Internos
 Use a tag style na seção <head> do documento HTML.
-Escreva as regras CSS entre as tags <style>...</style>
+Escreva as regras CSS entre as tags ``<style>...</style>``.
+
 Exemplo:
+```html
 	<head>
 		<style>
 			section {
@@ -28,6 +30,7 @@ Exemplo:
 			}
 		</style>
 	</head>
+```
 Funcionamento
 a regra CSS sera aplicada a todas as tags <section> na pagina
 Vantagens
@@ -36,17 +39,19 @@ manutenção simplificada.
 Folha de Estilo Externa
 Criar um Arquivo CSS:
 Crie um arquivo com a extensão .css (ex : main.css || home.css)
-Escreva as regras CSS diretamente no arquivo, sem usar tags <style>
+Escreva as regras CSS diretamente no arquivo, sem usar tags ``<style>``
 Exemplo (main.css)
 	section {
 		background: #ff000;
 	}
 Linkar o Arquivo no HTML:
-Adicionando a tag <link> na seção <head> para conectar o arquivo CSS
+Adicionando a tag ``<link>`` na seção ``<head>`` para conectar o arquivo CSS
 Exemplo:
+```html
 <head>
 	<link rel="stylesheet" href="main.css">
 </head>
+```
 Vantagens
 Separação clara entre HTML e CSS
 Reutilização em varias paginas
@@ -96,7 +101,6 @@ para aplicar estilos únicos a diferentes seções, utilize seletores específic
 1. Identifique as seções por **tags**, **classes**, ou **IDs**.
 	Exemplo:
 	``` css
-	// exemplo por classes
 	.header-sectrion {
 		background: #ff0000;
 		color: white;
@@ -114,6 +118,7 @@ Cada seção tera um estilo único sem compartilhamento de propriedades.
 2.  Escolha uma fonte desejada (ex: "Anton").
 3. Copie o link de importação fornecido
 4. Integre no HTML e utilize no CSS
+
 ```html
 <head> 
 	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -201,7 +206,7 @@ Certas propriedades, como ``font-family`` e ``color``, sao automaticamente herda
 Exemplo:
 ```css
 body {
-	font-family: 'Montserrat', sans-serif;]
+	font-family: 'Montserrat', sans-serif;
 	color: #333;
 }
 ```
@@ -229,3 +234,64 @@ h1 {
 	 - Propriedades nao herdáveis (como ``margin`` e ``padding``) devem ser definidas diretamente.
 
 A herança é  uma ferramenta poderosa para aplicar estilos globais de maneira eficiente, especialmente para textos. No entanto, é  essencial compreender como ela interage com a especificidade para evitar conflitos e garantir que os estilos desejados sejam aplicado corretamente.
+
+
+# Combinadores CSS
+
+Os combinadores CSS são utilizados para definir regras mais precisas ao selecionar elementos dentro do DOM. Existem quatro tipos principais de combinadores:
+
+## 1. Combinador Irmão Adjacente (`+`)
+Seleciona um elemento que vem imediatamente após outro elemento e que compartilha o mesmo elemento pai.
+
+**Sintaxe:**
+```css
+h2 + p {
+  color: red;
+}
+```
+**Exemplo:**
+Este estilo será aplicado apenas ao parágrafo (`p`) que segue imediatamente uma tag `h2`.
+
+## 2. Combinador Irmão Geral (`~`)
+Seleciona todos os elementos que compartilham o mesmo elemento pai e que aparecem após o primeiro elemento especificado.
+
+**Sintaxe:**
+```css
+h2 ~ p {
+  color: red;
+}
+```
+**Exemplo:**
+Todos os parágrafos (`p`) que estiverem no mesmo nível que um `h2` e aparecerem depois dele receberão o estilo.
+
+## 3. Combinador Filho (`>`)
+Seleciona apenas elementos que são filhos diretos do elemento especificado.
+
+**Sintaxe:**
+```css
+div > p {
+  color: red;
+}
+```
+**Exemplo:**
+A cor vermelha será aplicada somente aos parágrafos (`p`) que forem filhos diretos de uma `div`, ignorando elementos `p` aninhados dentro de outros elementos dentro da `div`.
+
+## 4. Combinador Descendente (` `) (espaço em branco)
+Seleciona qualquer elemento que seja descendente de outro, independentemente do nível de aninhamento.
+
+**Sintaxe:**
+```css
+div p {
+  color: red;
+}
+```
+**Exemplo:**
+Todos os parágrafos (`p`) dentro de uma `div`, independentemente da profundidade de aninhamento, receberão a cor vermelha.
+
+## Considerações de Desempenho
+- Seletores diretos (sem combinadores) apresentam melhor desempenho.
+- IDs (`#id`) são mais eficientes do que classes (`.classe`), e combinadores que os utilizam têm um desempenho melhor.
+- O uso excessivo de combinadores pode impactar a performance do CSS, especialmente em páginas complexas.
+
+Os combinadores são ferramentas poderosas para a organização do estilo CSS e devem ser utilizados para garantir seleções precisas de elementos na estrutura do documento.
+
